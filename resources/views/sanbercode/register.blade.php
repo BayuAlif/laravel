@@ -1,12 +1,11 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
+@extends('template-file.home')
+
+@section('title')
+    Halaman regist
+@endsection
+
+@section('content')
+
 <div class="container">
         <b>
             <h2>Buat Account Baru</h2>
@@ -43,5 +42,5 @@
             <input type="submit" value="send">
         </form>
     </div>
-</body>
-</html>
+    
+@endsection
