@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\RegisterController;
+use App\Http\Controllers\CastController;
 
 /*
 |--------------------------------------------------------------------------
@@ -32,3 +33,8 @@ Route::get('/tables', function (){
 Route::get('/data-tables', function (){
     return view('template-file.data-tables');  
 });
+
+
+//create data
+Route::get('/cast/create', [CastController::class, 'create']); 
+Route::post('/cast', [CastController::class, 'store']); 

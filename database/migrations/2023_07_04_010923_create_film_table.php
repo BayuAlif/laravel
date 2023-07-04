@@ -16,9 +16,10 @@ return new class extends Migration
             $table->string('judul');
             $table->text('ringkasan');
             $table->integer('tahun');
-            $table->string('poster');
-            $table->unsignedBigInteger('genre_id');
-            $table->foreign('genre_id')->references('id')->on('genre');
+            $table->string('genre');
+            // $table->string('poster');
+            // $table->unsignedBigInteger('genre_id');
+            // $table->foreign('genre_id')->references('id')->on('genre');
             $table->timestamps();
         });
     }
