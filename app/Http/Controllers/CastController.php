@@ -31,4 +31,20 @@ class CastController extends Controller
 
         return redirect('/cast');
     }
+
+    public function index(){
+        $film = DB::table('film')->get();
+
+        // dd($film);
+
+        return view('cast.read', ['film' => $film]);
+    }
+
+    //menampilkan details
+    public function details($id){
+        //bagian films dan film gak boleh sama nanti eror
+        $films = DB::table('film')->find($id);
+
+        return view('cast.details', ['films' => $films]);
+    }
 }

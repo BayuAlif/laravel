@@ -38,3 +38,8 @@ Route::get('/data-tables', function (){
 //create data
 Route::get('/cast/create', [CastController::class, 'create']); 
 Route::post('/cast', [CastController::class, 'store']); 
+
+//read data
+Route::get('/cast', [CastController::class, 'index']);
+//read details
+Route::get('/cast/{id}', [CastController::class, 'details']);
