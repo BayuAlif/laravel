@@ -43,3 +43,10 @@ Route::post('/cast', [CastController::class, 'store']);
 Route::get('/cast', [CastController::class, 'index']);
 //read details
 Route::get('/cast/{id}', [CastController::class, 'details']);
+
+//update data
+Route::get('/cast/{id}/edit', [CastController::class, 'edit']);
+Route::put('/cast/{id}', [CastController::class, 'update']);
+
+//delete data
+Route::delete('/cast/{id}', [CastController::class, 'destroy']);

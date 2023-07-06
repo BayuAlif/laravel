@@ -25,7 +25,7 @@ class CastController extends Controller
             'judul' => $request->input('judul'),
             'ringkasan' => $request->input('ringkasan'),
             'tahun' => $request->input('tahun'),
-            'genre' => $request->input('genre'),
+            'genre' => $request->input('genre')
             // 'poster' => $request->input('poster'),
         ]);
 
@@ -47,4 +47,38 @@ class CastController extends Controller
 
         return view('cast.details', ['films' => $films]);
     }
+
+    //menampilkan edit data
+    public function edit($id){
+        //bagian films dan film gak boleh sama nanti eror
+        $films = DB::table('film')->find($id);
+
+        return view('cast.edit', ['films' => $films]);
+    }
+
+    //mengupdate data
+    public function update($id, Request $request){ 
+        $request->validate([
+            'judul' => 'required|min:5|max:255',
+            'ringkasan' => 'required',
+            'tahun' => 'required',
+            'genre' => 'required',
+        ]);
+
+        DB::table('film')
+      ->where('id', $id)
+      ->update([
+        'judul' => $request->input('judul'),
+        'ringkasan' => $request->input('ringkasan'),    
+        'tahun' => $request->input('tahun'),
+        'genre' => $request->input('genre')
+        ]);
+        return redirect('/cast');
+    } 
+    
+    public function destroy($id){
+        DB::table('film')->where('id', '=', $id)->delete();
+        return \redirect('/cast');
+    }
+
 }

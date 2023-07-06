@@ -15,11 +15,19 @@
           </tr>
         </thead>
         <tbody>
-            @forelse ($film as $key => $values)
+            @forelse ($film as $key => $value)
             <tr>
               <th scope="row">{{$key + 1}}</th>
-              <td>{{$values->judul}}</td>
-              <td><a href="/cast/{{$values->id}}" class="btn btn-danger">Details</a></td>
+              <td>{{$value->judul}}</td>
+              <td>
+                <form action="/cast/{{$value->id}}" method="POST">
+                  @csrf
+                  @method('delete')
+                  <a href="/cast/{{$value->id}}" class="btn btn-info">Details</a>
+                  <a href="/cast/{{$value->id}}/edit" class="btn btn-primary">Edit</a>
+                  <input type="submit" value="Delete" class="btn btn-danger">
+                </form>
+            </td>
             </tr> 
                 
             @empty
@@ -28,3 +36,5 @@
         </tbody>
       </table>    
 @endsection
+combo box 
+checkbox
